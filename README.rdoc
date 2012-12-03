@@ -8,7 +8,7 @@ I'm also a pretty aggressive aliaser. You might find a few you like in bash/alia
 
 == Pre Installation
 
-For vim, make sure you have pathogen and vundle installed
+For vim, make sure you have pathogen and vundle installed. Also make sure you have a ~/.tmp directory to store backup files
 
 === Vundle
 
