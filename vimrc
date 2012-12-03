@@ -103,7 +103,10 @@ map <Leader>vm :RVmodel<cr>
 map <Leader>vv :RVview<cr>
 map <Leader>w <C-w>w
 map <Leader>x :exec getline(".")<cr>
-map <Leader>. :NERDTreeToggle
+map <Leader>. :NERDTreeToggle<cr>
+
+" Nerd Tree Stuff
+let g:NERDTreeWinPos = "right"
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
