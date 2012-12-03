@@ -2,6 +2,9 @@
 	name = Andreas Fast
 	email = andreas.fast@moove-it.com
 [alias]
+        st = status
+        ci = commit
+        br = branch
 	co = checkout
         cleanup = !git remote prune origin && git gc && git clean -df && git stash clear
 [color]
