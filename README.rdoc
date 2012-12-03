@@ -6,6 +6,20 @@ Vim-users will likely find useful stuff in .vimrc, and also vim/snippets.
 
 I'm also a pretty aggressive aliaser. You might find a few you like in bash/aliases.
 
+== Pre Installation
+
+For vim, make sure you have pathogen and vundle installed
+
+=== Vundle
+
+  mkdir -p ~/.vim/autoload ~/.vim/bundle; \
+  curl -Sso ~/.vim/autoload/pathogen.vim \
+    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+
+=== Pathogen
+
+  git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
 == Installation
 
   git clone git://github.com/afast/dotfiles ~/.dotfiles
