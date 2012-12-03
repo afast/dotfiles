@@ -23,7 +23,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
-Bundle 'koron/nyancat-vim'
+Bundle 'scrooloose/nerdtree'
 
 " ================
 " Ruby stuff
