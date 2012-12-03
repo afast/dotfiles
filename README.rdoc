@@ -1,4 +1,4 @@
-=== Ben Orenstein's dot files
+=== Andreas Fast's dot files (forked from Ben Orenstein's)
 
 These are config files to set up a system the way I like it.
 
