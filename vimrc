@@ -326,7 +326,7 @@ set timeoutlen=500
 autocmd BufNewFile,BufRead /Users/ben/code/levelup/*.rb set colorcolumn=100
 
 " Remove trailing whitespace on save for ruby files.
-au FileType c,cpp,java,php,ruby,python,rb,coffee,js,css,scss au BufWritePre <buffer> :%s/\s\+$//e
+au FileType c,cpp,java,php,ruby,python,rb,coffee,js,css,scss,erb,haml au BufWritePre <buffer> :%s/\s\+$//e
 
 function! OpenFactoryFile()
   if filereadable("test/factories.rb")
