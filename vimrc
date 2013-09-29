@@ -1,5 +1,5 @@
 " Use Pathogen:
-call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 call pathogen#helptags()
 
 " ========================================================================
@@ -78,6 +78,8 @@ map <Leader>pn :sp ~/Dropbox/work/thoughtbot/notes/project-notes.txt<cr>
 map <Leader>ra :%s/
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
 map <Leader>rf :CommandTFlush<CR>:CommandT<CR>
+map <Leader>rm :%s/:\(\w*\)\s*=>\s*/\1: /<CR>
+map <Leader>rn :%s///g
 map <Leader>rs :vsp <C-r>#<cr><C-w>w
 map <Leader>rt q:?!ruby<cr><cr>
 map <Leader>rw :%s/\s\+$//<cr>:w<cr>
@@ -325,8 +327,12 @@ set timeoutlen=500
 " Don't go past 100 chars on levelup:
 autocmd BufNewFile,BufRead /Users/ben/code/levelup/*.rb set colorcolumn=100
 
+" colorscheme railscasts
+
 " Remove trailing whitespace on save for ruby files.
 au FileType c,cpp,java,php,ruby,python,rb,coffee,js,css,scss,erb,haml au BufWritePre <buffer> :%s/\s\+$//e
+" Remove ^M
+" au FileType c,cpp,java,php,ruby,python,rb,coffee,js,css,scss,erb,rhtml,haml,txt,xml au BufWritePre <buffer> :%s///e
 
 function! OpenFactoryFile()
   if filereadable("test/factories.rb")
