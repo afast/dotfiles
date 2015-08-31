@@ -21,9 +21,11 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'slim-template/vim-slim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
 Bundle 'scrooloose/nerdtree'
+Bundle 'shutnik/jshint2.vim'
 
 call pathogen#infect()
 
@@ -111,6 +113,10 @@ map <Leader>. :NERDTreeToggle<cr>
 
 " Nerd Tree Stuff
 let g:NERDTreeWinPos = "right"
+
+" JSHINT stuff
+let jshint2_save = 1
+let jshint2_confirm = 0
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
@@ -324,13 +330,8 @@ let g:CommandTMatchWindowAtTop=1
 " situations.
 set timeoutlen=500
 
-" Don't go past 100 chars on levelup:
-autocmd BufNewFile,BufRead /Users/ben/code/levelup/*.rb set colorcolumn=100
-
-" colorscheme railscasts
-
 " Remove trailing whitespace on save for ruby files.
-au FileType c,cpp,java,php,ruby,python,rb,coffee,js,css,scss,erb,haml au BufWritePre <buffer> :%s/\s\+$//e
+au FileType c,cpp,java,php,ruby,python,rb,coffee,js,html,css,scss,erb,haml au BufWritePre <buffer> :%s/\s\+$//e
 " Remove ^M
 " au FileType c,cpp,java,php,ruby,python,rb,coffee,js,css,scss,erb,rhtml,haml,txt,xml au BufWritePre <buffer> :%s///e
 

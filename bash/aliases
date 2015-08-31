@@ -7,6 +7,7 @@ elif [[ $platform == 'Darwin' ]]; then
 fi
 
 alias amend="git commit --amend"
+alias amend!="git commit --amend --no-edit"
 alias asu="cd ~/code/rails/activesupport"
 alias aliases='vim ~/.dotfiles/bash/aliases'
 alias bake='bundle exec rake'
@@ -28,11 +29,16 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias get='sudo apt-get install'
 alias gg='git lg'
+alias glgga='git log --all --decorate --graph'
 alias gmaster='git push gerrit `git_branch_name`:master'
 alias gpush='git push gerrit HEAD:refs/for/`git_branch_name`'
 alias ghead='git push gerrit HEAD:refs/for/`git_branch_name`'
 alias gpsuh='git push gerrit HEAD:refs/for/`git_branch_name`'
 alias draft='git push gerrit HEAD:refs/drafts/`git_branch_name`'
+alias gdgerrit='git push gerrit HEAD:refs/for/develop/`git_branch_name`'
+alias gmgerrit='git push gerrit HEAD:refs/for/master/`git_branch_name`'
+alias gdorigin='git push origin HEAD:refs/for/develop/`git_branch_name`'
+alias gdevment='git push gerrit HEAD:refs/for/development/`git_branch_name`'
 alias gnew_branch='git push gerrit gerrit/master:refs/heads/`git_branch_name`'
 alias gclear="git filter-branch --msg-filter 'sed -e \"/^\s*Change-Id:\sI[a-f0-9]\{40\}$/d\"'"
 alias gpr='git pull --rebase'
@@ -44,7 +50,8 @@ alias irb='irb --readline -r irb/completion'
 alias journal='vim ~/Dropbox/docs/journal/2011.txt'
 alias killruby='killall -9 ruby'
 alias killthin='kill -9 `ps -ef | grep thin | grep rails | grep -E "andreas *[0-9]+" -o | grep "[0-9]*" -o`'
-alias houdinikill='kill -9 `ps -ef | grep Houdini | grep Z | grep -E "andreas *[0-9]+" -o | grep "[0-9]*" -o`'
+alias nrs='npm run start'
+alias nrb='npm run build'
 alias pc='production-console'
 alias patch='git format-patch HEAD^ --stdout > patch.diff'
 alias prepdb='dbprep'

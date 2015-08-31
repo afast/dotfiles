@@ -34,7 +34,7 @@ function parse_git_branch {
   if [ "$val" = "()" ]; then
     val=""
   else
-    val=" $val"
+    val="$val"
   fi
   echo "$val"
 }
