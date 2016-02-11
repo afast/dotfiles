@@ -8,6 +8,8 @@ call pathogen#helptags()
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+
+
 " Let Vundle manage Vundle (required)!
 Bundle 'gmarik/vundle'
 
@@ -15,17 +17,22 @@ Bundle 'gmarik/vundle'
 Bundle 'ervandew/supertab'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-endwise'
 Bundle 'slim-template/vim-slim'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'wincent/Command-T'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 Bundle 'shutnik/jshint2.vim'
+Plugin 'vim-airline/vim-airline'
+Bundle 'ctrlpvim/ctrlp.vim'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'wincent/terminus'
 
 call pathogen#infect()
 
@@ -47,62 +54,34 @@ let mapleader = ","
 
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
-vmap <Leader>bed "td?describe<cr>obed<tab><esc>"tpkdd/end<cr>o<esc>:nohl<cr>
-map <Leader>cc :!cucumber --drb %<CR>
 map <Leader>cu :Tabularize /\|<CR>
 map <Leader>co ggVG"*y
-map <Leader>cc :Rjcollection client/
-map <Leader>cj :Rjspec client/
-map <Leader>cm :Rjmodel client/
-map <Leader>ct :Rtemplate client/
-map <Leader>cv :Rjview client/
-map <Leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
 map <Leader>d odebugger<cr>puts 'debugger'<esc>:w<cr>
-map <Leader>dr :e ~/Dropbox<cr>
-map <Leader>ec :e ~/code/
 map <Leader>gac :Gcommit -m -a ""<LEFT>
 map <Leader>gc :Gcommit -m ""<LEFT>
-map <Leader>gr :e ~/Dropbox/docs/journal<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gw :!git add . && git commit -m 'WIP' && git push<cr>
-map <Leader>f :call OpenFactoryFile()<CR>
 map <Leader>fix :cnoremap % %<CR>
-map <Leader>fa :sp test/factories.rb<CR>
-map <Leader>h :CommandT<CR>
+map <Leader>h :CtrlP<CR>
 map <Leader>i mmgg=G`m<CR>
-map <Leader>j :CommandT app/assets/javascripts<cr>client/
 map <Leader>l oconsole.log 'debugging'<esc>:w<cr>
 map <Leader>m :Rmodel 
-map <Leader>nn :sp ~/Dropbox/notes/programming_notes.txt<cr>
 map <Leader>o :call RunCurrentLineInTest()<CR>
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
-map <Leader>pn :sp ~/Dropbox/work/thoughtbot/notes/project-notes.txt<cr>
 map <Leader>ra :%s/
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
-map <Leader>rf :CommandTFlush<CR>:CommandT<CR>
 map <Leader>rm :%s/:\(\w*\)\s*=>\s*/\1: /<CR>
 map <Leader>rn :%s///g
 map <Leader>rs :vsp <C-r>#<cr><C-w>w
 map <Leader>rt q:?!ruby<cr><cr>
 map <Leader>rw :%s/\s\+$//<cr>:w<cr>
-map <Leader>sc :sp db/schema.rb<cr>
-map <Leader>sg :sp<cr>:grep 
-map <Leader>sj :call OpenJasmineSpecInBrowser()<cr>
-map <Leader>sm :RSmodel 
 map <Leader>sp yss<p>
-map <Leader>sn :e ~/.vim/snippets/ruby.snippets<CR>
-map <Leader>so :so %<cr>
-map <Leader>sq j<c-v>}klllcs<esc>:wq<cr>
 map <Leader>ss ds)i <esc>:w<cr>
 map <Leader>st :!ruby -Itest % -n "//"<left><left>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
 map <Leader>t :call RunCurrentTest()<CR>
-map <Leader>y :!rspec --drb %<cr>
 map <Leader>u :Runittest<cr>
-map <Leader>vc :RVcontroller<cr>
-map <Leader>vf :RVfunctional<cr>
-map <Leader>vg :vsp<cr>:grep 
 map <Leader>vi :tabe ~/.vimrc<CR>
 map <Leader>vu :RVunittest<CR>
 map <Leader>vm :RVmodel<cr>
@@ -183,6 +162,9 @@ let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;
 
 " Highlight the status line
 highlight StatusLine ctermfg=blue ctermbg=yellow
+
+" NerdTree directory highlight
+:highlight Directory guifg=#336633 ctermfg=green
 
 " Format xml files
 au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null" 
@@ -396,3 +378,5 @@ if has("autocmd")
   augroup END
 
 endif " has("autocmd")
+
+set clipboard=unnamed
