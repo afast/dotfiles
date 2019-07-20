@@ -23,3 +23,6 @@ export cap_dm_password=Num3r3x
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 
+export LC_ALL="en_US.UTF-8"
+
+test -r /sw/bin/init.sh && . /sw/bin/init.sh

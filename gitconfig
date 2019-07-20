@@ -1,6 +1,7 @@
 [user]
 	name = Andreas Fast
 	email = andreas.fast@moove-it.com
+	signingkey = 34C2258A
 [alias]
         st = status
         ci = commit
@@ -34,3 +35,9 @@
 	enabled = 1
 [github]
 	user = afast
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[merge]
+	tool = vimdiff

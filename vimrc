@@ -27,11 +27,10 @@ Bundle 'slim-template/vim-slim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'shutnik/jshint2.vim'
+" Bundle 'shutnik/jshint2.vim'
 Plugin 'vim-airline/vim-airline'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'jiangmiao/auto-pairs'
 Bundle 'wincent/terminus'
 
 call pathogen#infect()
@@ -58,6 +57,7 @@ map <Leader>cu :Tabularize /\|<CR>
 map <Leader>co ggVG"*y
 map <Leader>d odebugger<cr>puts 'debugger'<esc>:w<cr>
 map <Leader>gac :Gcommit -m -a ""<LEFT>
+map <Leader>gb :Gblame<CR>
 map <Leader>gc :Gcommit -m ""<LEFT>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gw :!git add . && git commit -m 'WIP' && git push<cr>
@@ -94,8 +94,8 @@ map <Leader>. :NERDTreeToggle<cr>
 let g:NERDTreeWinPos = "right"
 
 " JSHINT stuff
-let jshint2_save = 1
-let jshint2_confirm = 0
+" let jshint2_save = 1
+" let jshint2_confirm = 0
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
@@ -141,6 +141,7 @@ set number
 set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
 set autoindent " always set autoindenting on
 set bg=light
+set relativenumber
 
 " Set the tag file search order
 set tags=./tags;
@@ -290,6 +291,14 @@ autocmd User Rails Rnavcommand jcollection app/assets/javascripts/collections -g
 autocmd User Rails Rnavcommand jrouter     app/assets/javascripts/routers     -glob=**/*  -suffix=.coffee
 autocmd User Rails Rnavcommand jspec       spec/javascripts                   -glob=**/*  -suffix=.coffee
 
+autocmd BufNewFile,BufRead *.py
+    \ setlocal tabstop=2 |
+    \ setlocal softtabstop=2 |
+    \ setlocal shiftwidth=2 |
+    \ setlocal textwidth=80 |
+    \ setlocal smarttab |
+    \ setlocal expandtab
+
 " Don't add the comment prefix when I hit enter or o/O on a comment line.
 set formatoptions-=or
 
@@ -313,7 +322,7 @@ let g:CommandTMatchWindowAtTop=1
 set timeoutlen=500
 
 " Remove trailing whitespace on save for ruby files.
-au FileType c,cpp,java,php,ruby,python,rb,coffee,js,html,css,scss,erb,haml au BufWritePre <buffer> :%s/\s\+$//e
+au FileType c,cpp,java,php,ruby,python,rb,coffee,javascript,html,css,scss,erb,haml au BufWritePre <buffer> :%s/\s\+$//e
 " Remove ^M
 " au FileType c,cpp,java,php,ruby,python,rb,coffee,js,css,scss,erb,rhtml,haml,txt,xml au BufWritePre <buffer> :%s///e
 
